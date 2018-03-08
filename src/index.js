@@ -5,15 +5,13 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux"
 import logger from "redux-logger";
 
-import { ConnectedRouter, routerMiddleware } from "react-router-redux";
-import createBrowserHistory from "history/createBrowserHistory";
+import { routerMiddleware } from "react-router-redux";
 
-import rootReducer from './reducers/rootReducer' // Or wherever you keep your reducers
+import rootReducer from './reducers/rootReducer';
+import history from './helpers/history';
 import App from './App';
 
 import registerServiceWorker from './registerServiceWorker';
-
-const history = createBrowserHistory();
 
 const store = createStore(
   rootReducer,
@@ -22,9 +20,7 @@ const store = createStore(
 
 render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
       <App />
-    </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
 );
