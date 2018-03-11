@@ -8,8 +8,9 @@
     "test": "node scripts/test.js --env=jsdom",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "eslint": "eslint --print-config src",
-    "prettier": "prettier --single-quote --write ./src/*"
+    "eslint": "eslint src",
+    "prettier": "prettier --single-quote --write ./src/*",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "autoprefixer": "7.1.6",
@@ -25,13 +26,6 @@
     "css-loader": "0.28.7",
     "dotenv": "4.0.0",
     "dotenv-expand": "4.2.0",
-    "eslint": "4.10.0",
-    "eslint-config-react-app": "^2.1.0",
-    "eslint-loader": "1.9.0",
-    "eslint-plugin-flowtype": "2.39.1",
-    "eslint-plugin-import": "2.8.0",
-    "eslint-plugin-jsx-a11y": "5.1.1",
-    "eslint-plugin-react": "7.4.0",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.5",
     "fs-extra": "3.0.1",
@@ -50,6 +44,7 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-redux": "^5.0.0-alpha.9",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "style-loader": "0.19.0",
@@ -61,8 +56,16 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "eslint": "4.10.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-flowtype": "2.39.1",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "7.4.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
     "prettier": "^1.11.1",
-    "react-router-dom": "^4.2.2",
     "react-styleguidist": "^6.2.6",
     "redux-devtools": "^3.4.1",
     "redux-logger": "^3.0.6",
@@ -109,5 +112,11 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "lint-staged": {
+    "./src/*": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
