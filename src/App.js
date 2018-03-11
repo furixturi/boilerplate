@@ -1,6 +1,6 @@
 import React from "react";
 import { createStore, applyMiddleware } from "redux";
-import { connect, Provider } from "react-redux";
+import { Provider } from "react-redux";
 import logger from "redux-logger";
 import { Route, Switch } from "react-router";
 import { ConnectedRouter, routerMiddleware } from "react-router-redux";
