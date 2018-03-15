@@ -1,12 +1,14 @@
+import styles from './Home.scss';
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Navigation from '../components/Navigation';
+import Navigation from '../../components/Navigation';
 
 class Home extends React.Component {
   render(){
-    return <div>
+    return <div className={styles.home}>
         <h1>Home</h1>
         <Navigation />
         <h3>
